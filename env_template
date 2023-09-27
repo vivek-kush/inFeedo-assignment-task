@@ -1,0 +1,4 @@
+PORT = 3000
+DATABASE = 'sqlite'
+DATABASE_STORAGE = './database.sqlite'
+PAGE_SIZE = 5
