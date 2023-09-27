@@ -6,11 +6,8 @@
 
 1. Clone this repository.
 2. Install dependencies with `npm install`.
+3. create .env file and copy the content from env_template file 
 
-## Database Configuration
-
-1. Configure your database in `db.js`. (SQLite is used in this example)
-2. Create the SQLite database file if not already created.
 
 ## Running the Application
 
@@ -19,8 +16,18 @@
 
 ## API Documentation
 
-- Create a Task: `POST /tasks`
-- Update a Task: `PUT /tasks/:id`
-- Get All Tasks: `GET /tasks`
-- Get Task Metrics: `GET /metrics`
+- Create a Task: `POST /tasks` sample curl request: `curl --location 'http://localhost:3000/tasks' \
+--header 'Content-Type: application/json' \
+--data '{
+    "title": "Task 1",
+    "description": "Description Task 1",
+    "status": "completed"
+}'`
+- Update a Task: `PUT /tasks/:id` sample curl request: curl --location --request PUT 'http://localhost:3000/tasks/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "status": "inprogress"
+}'
+- Get All Tasks: `GET /tasks` sample curl request: curl --location 'http://localhost:3000/tasks?page=1'
+- Get Task Metrics: `GET tasks/metrics` sample curl request: curl --location 'http://localhost:3000/tasks/metrics/'
 
