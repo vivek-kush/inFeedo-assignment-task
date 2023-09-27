@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const Task = require('../models/task');
-const { Op, fn, col, literal, where } = require('sequelize');
+const { fn, col, literal } = require('sequelize');
 const moment = require('moment');
 
 // Create a task
@@ -34,7 +34,7 @@ exports.updateTask = async (req, res) => {
 exports.getTasks = async (req, res) => {
     try {
         const pageSize = process.env.PAGE_SIZE
-        const page = parseInt(req.query.page);
+        const page = parseInt(req.query.page) || 1;
         const offset = (page - 1) * pageSize
         const tasks = await Task.findAll({ limit: pageSize, offset: offset });
         res.json(tasks);
